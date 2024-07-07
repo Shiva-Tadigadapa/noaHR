@@ -28,7 +28,8 @@ const sidebar = () => {
   return (
     <div
       className=" bg-gray-100 rounded-3xl
-    flex flex-col items-center pb-10   h-full
+      sticky top-10 h-[92vh]
+    flex flex-col items-center pb-10
       gap-10 border-r border-gray-200"
     >
       <div className="flex w-[90%]  items-center
