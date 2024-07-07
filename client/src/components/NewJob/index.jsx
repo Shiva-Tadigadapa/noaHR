@@ -57,7 +57,7 @@ const Index = () => {
     };
 
     return (
-        <div className="flex flex-col items-center w-full p-8">
+        <div className="flex flex-col items-start w-full p-8">
             <div className="w-full flex items-center p-4 justify-between mb-8">
                 {Object.keys(components).map((tabName, index) => (
                     <React.Fragment key={tabName}>
