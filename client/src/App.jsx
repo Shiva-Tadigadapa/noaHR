@@ -1,6 +1,8 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Dashboard from "./pages/dashboard/Dashboard";
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Dashboard from './pages/Dashboard/Dashboard';
+import NewJobPost from './pages/NewJob/NewJobPost';
+import { Toaster } from 'sonner';
 
 const App = () => {
   return (
@@ -10,8 +12,9 @@ const App = () => {
         
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          {/* <Route path="about" element={<About />} /> */}
+          <Route path="/newjob" element={<NewJobPost />} />
         </Routes>
+        <Toaster position='top-right' richColors/>
       </div>
     </>
   );
