@@ -6,9 +6,21 @@
 body {
   font-family: 'Poppins', sans-serif;
   background-color: rgb(239, 239, 239);
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* background-color: black; */
 }
 
+#root{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+}
+
+/* Scrollbar Styling */
 ::-webkit-scrollbar {
   width: 10px;
   cursor: pointer;
@@ -35,6 +47,7 @@ body {
 }
 
 
+/* No Scrollbar */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }

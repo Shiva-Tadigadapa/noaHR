@@ -26,12 +26,18 @@ const sidebar = () => {
   };
 
   return (
-    // <Sticky >
-    <div className=" bg-gray-100 rounded-3xl  flex flex-col items-center pb-10   h-full   gap-10 border-r border-gray-200">
-      <div className="flex w-[90%]  items-center justify-between p-5  border-b-2 border-dashed ">
+    <div
+      className=" bg-gray-100 rounded-3xl
+    flex flex-col items-center pb-10   h-full
+      gap-10 border-r border-gray-200"
+    >
+      <div className="flex w-[90%]  items-center
+       justify-between p-5  border-b-2 border-dashed ">
         <div className="flex items-center gap-2">
           <TbBrandGithubCopilot className="text-4xl p-2 bg-red-400 border border-red-600 rounded-full " />
-          <h1 className="text-2xl font-bold text-center">Bankai</h1>
+          <h1 className="text-2xl font-bold text-center">
+            noaHr
+          </h1>
         </div>
         <LuSettings className="text-3xl border p-1 cursor-pointer hover:bg-black hover:text-white transition-all hover:scale-105 rounded-lg bg-gray-100" />
       </div>
@@ -69,9 +75,10 @@ const sidebar = () => {
       </div>
       <hr className="w-[80%] p-2" />
 
-      <div  className=" bg-black  text-white px-2 py-3     w-48 rounded-2xl text-center">Profile</div>
+      <div className=" bg-black  text-white px-2 py-3     w-48 rounded-2xl text-center">
+        Profile
+      </div>
     </div>
-    // {/* </Sticky> */}
   );
 };
 

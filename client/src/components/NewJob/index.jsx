@@ -19,10 +19,10 @@ const components = {
 
 const icons = {
     JobDetails: <TbListDetails />,
-    JobDescription: <TbFileDescription />, 
+    JobDescription: <TbFileDescription />,
     HiringSteps: <PiStepsBold />,
-    ApplyForm: <LuTextCursorInput />, 
-    Finish: <FaCircleCheck /> 
+    ApplyForm: <LuTextCursorInput />,
+    Finish: <FaCircleCheck />
 };
 
 const Index = () => {
