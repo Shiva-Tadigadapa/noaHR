@@ -23,7 +23,7 @@ const App = () => {
         {/* <h1 className='text-4xl'>App</h1> */}
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/newjob" element={<ApplyForm />} />
+          <Route path="/newjob" element={<NewJobPost />} />
           <Route path="/devatoms/jobs/:jobId/preview" element={<ApplyForm />} />
         </Routes>
         <Toaster position="top-right" richColors />
