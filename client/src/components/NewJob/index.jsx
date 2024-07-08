@@ -82,7 +82,7 @@ const Index = () => {
                     </React.Fragment>
                 ))}
             </div>
-            <div className="w-full flex bg-white p-20 items-center rounded-3xl justify-center">
+            <div className="w-full flex bg-white p-20 relative items-center rounded-3xl justify-center">
                 {renderComponent()}
             </div>
         </div>
