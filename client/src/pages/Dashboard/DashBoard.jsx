@@ -7,8 +7,8 @@ import Header from "../../components/dashBoard/Header";
 const Dashboard = () => {
   return (
     <>
-      <div className=" w-[100%] gap-5 px-4 py-4 flex justify-center    items-center">
-        <div className=" px-4 py-5  rounded-3xl bg-gray-100 border w-full ">
+      <div className=" w-full gap-5 px-4 py-4 flex justify-center items-center">
+        <div className=" px-4 py-5 rounded-3xl bg-gray-100 border w-full ">
           <SearchHOC />
 
           <div>
