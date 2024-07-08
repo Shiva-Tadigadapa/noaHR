@@ -4,6 +4,7 @@ import Dashboard from './pages/Dashboard/DashBoard'
 import NewJobPost from './pages/NewJob/NewJobPost';
 import { Toaster } from 'sonner';
 import Sidebar from './components/dashBoard/SideBar';
+import Dashboard from './pages/Dashboard/Dashboard';
 
 const App = () => {
   return (
