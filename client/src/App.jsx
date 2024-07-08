@@ -10,7 +10,7 @@ const App = () => {
     <>
       <div className="flex items-center justify-center ">
 
-        <div className="flex items-center justify-center max-w-[1800px] w-full p-5">
+        <div className="flex items-start justify-center max-w-[1800px] w-full p-5">
           <Sidebar />
           {/* <h1 className='text-4xl'>App</h1> */}
           <Routes>
