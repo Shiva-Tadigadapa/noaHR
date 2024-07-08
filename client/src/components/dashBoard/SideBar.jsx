@@ -27,9 +27,7 @@ const sidebar = () => {
 
   return (
     <div
-      className=" bg-gray-100 rounded-3xl
-    flex flex-col items-center pb-10  h-full
-      gap-10 border-r border-gray-200"
+      className=" bg-gray-100 rounded-3xl sticky top-10 h-[92vh] flex flex-col items-center pb-10 gap-10 border-r border-gray-200"
     >
       <div className="flex w-[90%]  items-center
        justify-between p-5  border-b-2 border-dashed ">

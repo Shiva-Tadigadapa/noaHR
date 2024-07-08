@@ -1,9 +1,8 @@
-import React from "react";
-import Sidebar from "../../components/dashBoard/SideBar";
-import SearchHOC from "../../components/dashBoard/SearchHoc";
-import Avatar from "boring-avatars";
-import JobCard from "../../components/dashBoard/JobCard";
-import Header from "../../components/dashBoard/Header";
+import React from 'react'
+import SearchHOC from '../../components/dashBoard/SearchHoc'
+import Header from '../../components/dashBoard/Header'
+import JobCard from '../../components/dashBoard/JobCard'
+
 const Dashboard = () => {
   return (
     <>
@@ -23,7 +22,7 @@ const Dashboard = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Dashboard;
+export default Dashboard
