@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-
+import {useNavigate} from "react-router-dom";
 const JobList = () => {
+  const navigate = useNavigate();
   const [jobs, setJobs] = useState([
     {
       id: 1,
@@ -127,7 +128,9 @@ const JobList = () => {
               {job.category} - {job.location}
             </p>
             <p className="text-sm">{job.type}</p>
-            <button className="mt-4 py-2 px-5 bg-gray-900 text-sm text-white rounded-md">
+            <button
+              onClick={() => navigate(`/devatoms/jobs/${job.id}/preview`)}
+            className="mt-4 py-2 px-5 bg-gray-900 text-sm text-white rounded-md">
               Apply Now
             </button>
           </div>
