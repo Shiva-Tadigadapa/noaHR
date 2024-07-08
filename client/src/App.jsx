@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Dashboard from './pages/Dashboard/Dashboard';
+import Dashboard from './pages/Dashboard/DashBoard';
 import NewJobPost from './pages/NewJob/NewJobPost';
 import { Toaster } from 'sonner';
 
