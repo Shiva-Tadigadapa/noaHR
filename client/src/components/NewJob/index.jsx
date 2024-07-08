@@ -36,7 +36,7 @@ const Index = () => {
     const Component = components[activeTab];
     return (
       <Suspense fallback={<div>Loading...</div>}>
-        <Component />
+        <Component handleTabClick={handleTabClick} />
       </Suspense>
     );
   };

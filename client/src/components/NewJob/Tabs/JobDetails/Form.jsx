@@ -1,7 +1,7 @@
 import React from "react";
 import Inputs from "./utils/Inputs";
 
-const Form = () => {
+const Form = ({handleTabClick}) => {
   return (
     <>
       <div className="p-8">
@@ -23,7 +23,9 @@ const Form = () => {
           <Inputs />
         </div>
         <div>
-          <button className="bg-gray-900/90 px-10 py-2 tracking-wider hover:bg-gray-950 text-white rounded-lg float-right">
+          <button
+          onClick={() => handleTabClick("JobDescription")}
+          className="bg-gray-900/90 px-10 py-2 tracking-wider hover:bg-gray-950 text-white rounded-lg float-right">
             Next
           </button>
         </div>
