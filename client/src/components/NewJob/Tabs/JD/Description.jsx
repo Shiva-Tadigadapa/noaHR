@@ -1,7 +1,7 @@
 import React from "react";
 import Editor from "./Editor";
 
-const Description = () => {
+const Description = ({handleTabClick}) => {
   return (
     <div className="p-10">
       <div className="block">
@@ -16,7 +16,9 @@ const Description = () => {
         <Editor />
       </div>
       <div>
-        <button className="bg-gray-900/90 px-10 py-2 tracking-wider hover:bg-gray-950 text-white rounded-lg float-right">
+        <button
+        onClick={() => handleTabClick("HiringSteps")}
+        className="bg-gray-900/90 px-10 py-2 tracking-wider hover:bg-gray-950 text-white rounded-lg float-right">
           Next
         </button>
       </div>
