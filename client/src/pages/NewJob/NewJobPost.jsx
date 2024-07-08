@@ -4,7 +4,7 @@ import NewJob from '../../components/NewJob';
 const NewJobPost = () => {
   return (
     <>
-      <div className="flex justify-center items-start w-full ">
+      <div className="flex justify-start items-start w-full ">
 
         <NewJob />
       </div>
