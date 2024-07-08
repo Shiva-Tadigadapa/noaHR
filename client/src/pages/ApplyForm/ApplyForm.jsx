@@ -4,8 +4,8 @@ import Depiction from "../../components/ApplyJob/Depiction";
 const ApplyForm = () => {
   return (
     <>
-      <div className=" flex justify-between gap-5 w-full">
-        <div className=" sticky top-0 w-[60%] ">
+      <div className=" flex  p-5 bg-white justify-between gap-5 w-full">
+        <div className="  border-r  h-screen sticky top-0 w-[60%] ">
           <SideBar />
         </div>
         <Depiction />
