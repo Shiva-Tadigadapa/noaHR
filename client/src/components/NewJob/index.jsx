@@ -45,7 +45,7 @@ const Index = () => {
     const tabNames = Object.keys(components);
     const activeIndex = tabNames.indexOf(activeTab);
 
-    return index <= activeIndex ? "text-indigo-800" : "text-zinc-400";
+    return index <= activeIndex ? "text-indigo-700" : "text-zinc-300";
   };
 
   const getButtonClass = (tabName) => {
@@ -54,37 +54,40 @@ const Index = () => {
       : "bg-white text-black border-zinc-400";
   };
 
-    return (
-        <div className="flex flex-col items-start w-full p-8">
-            <div className="w-full flex items-center p-4 justify-between mb-8">
-                {Object.keys(components).map((tabName, index) => (
-                    <React.Fragment key={tabName}>
-                        <button
-                            onClick={() => handleTabClick(tabName)}
-                            className={`flex items-center justify-center w-1/6 px-6 py-2 rounded-full border ${getButtonClass(tabName)}`}
-                        >
-                            <span className="mr-2">{icons[tabName]}</span>
-                            {tabName}
-                        </button>
-                        {index < Object.keys(components).length - 1 && (
-                            <svg
-                                className={`w-6 h-6 mx-2 ${getArrowClass(index)}`}
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
-                        )}
-                    </React.Fragment>
-                ))}
-            </div>
-            <div className="w-full flex bg-white p-20 relative items-center rounded-3xl justify-center">
-                {renderComponent()}
-            </div>
-        </div>
-    );
+  return (
+    <div className="flex flex-col items-start w-full p-8">
+      <div className="w-full top-0 sticky bg-[#efefef] z-50 flex items-center p-4 justify-between">
+        Create new Job posting
+      </div>
+      <div className="w-full sticky top-10 bg-[#efefef] z-50 flex items-center p-4 justify-between">
+        {Object.keys(components).map((tabName, index) => (
+          <React.Fragment key={tabName}>
+            <button
+              onClick={() => handleTabClick(tabName)}
+              className={`flex items-center justify-center w-1/6 px-6 py-2 rounded-full border ${getButtonClass(tabName)}`}
+            >
+              <span className="mr-2">{icons[tabName]}</span>
+              {tabName}
+            </button>
+            {index < Object.keys(components).length - 1 && (
+              <svg
+                className={`w-6 h-6 mx-2 ${getArrowClass(index)}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            )}
+          </React.Fragment>
+        ))}
+      </div>
+      <div className="w-full flex bg-white p-12 relative items-center rounded-3xl justify-center">
+        {renderComponent()}
+      </div>
+    </div>
+  );
 };
 
 export default Index;
