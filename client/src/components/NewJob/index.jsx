@@ -1,8 +1,11 @@
+// Index.js
 import React, { lazy, Suspense, useState } from "react";
 import { TbListDetails, TbFileDescription } from "react-icons/tb";
 import { PiStepsBold } from "react-icons/pi";
 import { FaCircleCheck } from "react-icons/fa6";
 import { LuTextCursorInput } from "react-icons/lu";
+import Confetti from 'react-confetti';
+
 const JobDetails = lazy(() => import("./Tabs/JobDetails/Form"));
 const JobDescription = lazy(() => import("./Tabs/JD/Description"));
 const HiringSteps = lazy(() => import("./Tabs/HiringSteps/Steps"));
@@ -27,16 +30,22 @@ const icons = {
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("JobDetails");
+  const [showConfetti, setShowConfetti] = useState(false);
 
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
+  };
+
+  const handleConfetti = () => {
+    setShowConfetti(true);
+    setTimeout(() => setShowConfetti(false), 3000); // Duration of confetti animation
   };
 
   const renderComponent = () => {
     const Component = components[activeTab];
     return (
       <Suspense fallback={<div>Loading...</div>}>
-        <Component handleTabClick={handleTabClick} />
+        <Component onConfetti={handleConfetti} handleTabClick={handleTabClick} />
       </Suspense>
     );
   };
@@ -45,21 +54,23 @@ const Index = () => {
     const tabNames = Object.keys(components);
     const activeIndex = tabNames.indexOf(activeTab);
 
-    return index <= activeIndex ? "text-indigo-700" : "text-zinc-300";
+    return index <= activeIndex ? "text-zinc-800" : "text-zinc-300";
   };
 
   const getButtonClass = (tabName) => {
     return activeTab === tabName
-      ? "bg-indigo-200 text-black border-indigo-700"
+      ? "bg-zinc-800 text-white border-zinc-800"
       : "bg-white text-black border-zinc-400";
   };
 
   return (
-    <div className="flex flex-col items-start w-full p-8">
-      <div className="w-full top-0 sticky bg-[#efefef] z-50 flex items-center p-4 justify-between">
+    <div className="relative flex flex-col items-start w-full p-8">
+
+
+      <div className="w-full font-semibold text-3xl top-0 bg-[#efefef] z-50 flex items-center p-1 justify-between">
         Create new Job posting
       </div>
-      <div className="w-full sticky top-10 bg-[#efefef] z-50 flex items-center p-4 justify-between">
+      <div className="w-full sticky top-0 backdrop-blur-lg bg-[#efefef]/30 border-b-2 border-[#efefef] z-50 flex items-center p-4 justify-between">
         {Object.keys(components).map((tabName, index) => (
           <React.Fragment key={tabName}>
             <button
@@ -86,6 +97,11 @@ const Index = () => {
       <div className="w-full flex bg-white p-12 relative items-center rounded-3xl justify-center">
         {renderComponent()}
       </div>
+      {showConfetti && (
+        <div className="w-full justify-center flex">
+        <Confetti width={1000} gravity={0.8} />
+      </div>
+      )}
     </div>
   );
 };

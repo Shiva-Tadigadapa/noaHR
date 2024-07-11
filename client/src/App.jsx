@@ -21,28 +21,23 @@ const App = () => {
       setShow(false);
     }
   }, [location]);
+
   return (
     <>
       <div className="flex items-center justify-center ">
         <div className="flex items-start justify-center max-w-[1800px] w-full p-5">
-          <Sidebar />
+          {show && <Sidebar />}
+          {/* <h1 className='text-4xl'>App</h1> */}
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/newjob" element={<NewJobPost />} />
+            <Route path="/myjobs/manage/:id" element={<ManageJob />} />
+            <Route path="/devatoms/jobs/:jobId/preview" element={<ApplyForm />} />
+            <Route path="/devatoms/preview/careers" element={<Career />} />
+            <Route path="*" element={<Dashboard />} />
           </Routes>
-          <Toaster position='top-right' richColors />
+          <Toaster position="top-right" richColors />
         </div>
-      <div className="flex  justify-center  w-full">
-        {show && <Sidebar />}
-        {/* <h1 className='text-4xl'>App</h1> */}
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/newjob" element={<NewJobPost />} />
-          <Route path="/myjobs/manage/:id" element={<ManageJob />} />
-          <Route path="/devatoms/jobs/:jobId/preview" element={<ApplyForm />} />
-          <Route path="/devatoms/preview/careers" element={<Career />} />
-        </Routes>
-        <Toaster position="top-right" richColors />
       </div>
     </>
   );

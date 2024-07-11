@@ -3,8 +3,9 @@ import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import update from "immutability-helper";
 import Modal from "./utils/Modal";
-import { FaTrash, FaPen } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 import { RxDragHandleDots2 } from "react-icons/rx";
+import { TbEditCircle } from "react-icons/tb";
 
 const ItemType = "STEP";
 
@@ -42,7 +43,7 @@ const DraggableStep = ({
   return (
     <div
       ref={(node) => ref(drop(node))}
-      className="w-full bg-indigo-50 border-indigo-600/60 border-2 rounded-lg px-4 py-2 overflow-hidden"
+      className="w-full bg-zinc-500/30 font-semibold border-zinc-600/60 border-2 rounded-lg px-4 py-2 overflow-hidden"
     >
       <div className="flex items-center justify-between gap-14">
         <div className="flex text-zinc-900 items-center justify-between gap-3 cursor-grab active:cursor-grabbing">
@@ -54,7 +55,7 @@ const DraggableStep = ({
             className="text-gray-800 px-2 py-1 rounded"
             onClick={() => handleEditStep(step)}
           >
-            <FaPen />
+            <TbEditCircle />
           </button>
           <button
             className="text-gray-800 px-2 py-1 rounded"
@@ -68,7 +69,7 @@ const DraggableStep = ({
   );
 };
 
-const Steps = () => {
+const Steps = ({ handleTabClick }) => {
   const [steps, setSteps] = useState(initialSteps);
   const [editingStep, setEditingStep] = useState(null);
   const [newStepText, setNewStepText] = useState("");
@@ -80,7 +81,7 @@ const Steps = () => {
 
   const closeModal2 = () => {
     setModal2(false);
-    setNewStepText(""); 
+    setNewStepText("");
   };
 
   const moveStep = (fromIndex, toIndex) => {
@@ -99,7 +100,7 @@ const Steps = () => {
   };
 
   const handleSaveEdit = () => {
-    if (!newStepText.trim()) return; 
+    if (!newStepText.trim()) return;
 
     if (editingStep !== null) {
       const updatedSteps = steps.map((step) =>
@@ -108,7 +109,7 @@ const Steps = () => {
       setSteps(updatedSteps);
     } else {
       const newStep = {
-        id: steps.length + 1, 
+        id: steps.length + 1,
         content: newStepText,
       };
       setSteps([...steps, newStep]);
@@ -116,7 +117,7 @@ const Steps = () => {
 
     setEditingStep(null);
     setNewStepText("");
-    closeModal2(); 
+    closeModal2();
   };
 
   const handleDeleteStep = (stepId) => {
@@ -125,7 +126,7 @@ const Steps = () => {
   };
 
   return (
-    <div className="w-full justify-center flex flex-row-reverse">
+    <div className="w-full justify-center flex flex-col">
       <button
         className="absolute right-8 hover:bg-black hover:text-white transition-all top-6 border px-3 py-2 rounded-xl bg-zinc-100"
         onClick={openModal2}
@@ -204,6 +205,13 @@ const Steps = () => {
           </div>
         </Modal>
       )}
+      <div className="w-full mt-10">
+        <button
+          onClick={() => handleTabClick("ApplyForm")}
+          className="bg-gray-900/90 px-10 py-2 tracking-wider hover:bg-gray-950 text-white rounded-lg float-right">
+          Next
+        </button>
+      </div>
     </div>
   );
 };
