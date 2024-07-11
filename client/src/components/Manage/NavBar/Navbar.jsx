@@ -1,7 +1,10 @@
 import React from "react";
 import { FaUserCircle, FaCog, FaSearch } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-white w-full shadow-sm overflow-hidden">
       <div className="flex justify-between items-center px-6 py-4">
@@ -26,7 +29,9 @@ const Navbar = () => {
           </div>
         </div>
         <div className="flex items-center space-x-6">
-          <button className="px-4 py-2 rounded bg-black/80 text-white hover:bg-gray-700 transition-all duration-300">
+          <button
+          onClick={() => navigate("/myjobs/manage/boo/edit")}
+          className="px-4 py-2 rounded-xl bg-black/80 text-white hover:bg-gray-700 transition-all duration-300">
             Edit Job
           </button>
           <FaUserCircle className="text-2xl text-gray-700 hover:text-gray-900 cursor-pointer transition-all duration-300" />

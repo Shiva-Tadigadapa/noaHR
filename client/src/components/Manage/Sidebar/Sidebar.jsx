@@ -7,10 +7,8 @@ import { MdSettings, MdHelp } from "react-icons/md";
 import { Tooltip } from "react-tooltip";
 
 const Sidebar = () => {
-  // State to manage active tab
   const [activeTab, setActiveTab] = useState("Overview");
 
-  // Icons with labels and styles
   const icons = [
     { label: "Overview", icon: <SlSpeedometer className="text-2xl" /> },
     { label: "Candidates", icon: <FaUsers className="text-2xl" /> },
