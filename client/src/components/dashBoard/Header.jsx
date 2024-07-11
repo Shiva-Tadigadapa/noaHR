@@ -5,9 +5,9 @@ const Header = () => {
   const navigate = useNavigate();
   return (
     <>
-      <div className=" flex  justify-between px-10 py-4  mb-4">
+      <div className=" flex  justify-between px-6 py-6  mb-4">
         <div>
-          <h2>Your Jobs</h2>
+          <h2 className="text-3xl font-bold">Your Jobs</h2>
         </div>
         <div>
           <button
