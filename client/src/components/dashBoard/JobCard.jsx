@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Avatar from "boring-avatars";
+import { FiEye } from "react-icons/fi"; // Importing Eye icon from React Icons
 
 const JobCard = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,7 +10,7 @@ const JobCard = () => {
   };
 
   return (
-    <div className="rounded-lg  overflow-hidden cursor-pointer hover:bg-gray-50/10 transition-all delay-75 duration-300 bg-white border border-gray-200">
+    <div className="rounded-lg overflow-hidden cursor-pointer hover:bg-gray-50/10 transition-all delay-75 duration-300 bg-white border border-gray-200">
       <div className="p-4">
         <div className="flex items-center mb-3">
           <Avatar
@@ -37,10 +38,16 @@ const JobCard = () => {
           <div className="px-2 py-1 text-xs rounded-md text-gray-900 bg-gray-100">
             <p>JobId: 8465793</p>
           </div>
-          <div className="relative">
+          <div className="relative flex items-center">
+            <a
+              href="#"
+              className="flex items-center px-2 py-1 text-xs rounded-md text-gray-800 bg-gray-200 hover:bg-gray-300 focus:outline-none"
+            >
+              <FiEye className="mr-1" /> Preview
+            </a>
             <button
               onClick={toggleDropdown}
-              className="px-2 py-1 text-xs rounded-md text-gray-800 bg-gray-200 hover:bg-gray-300 focus:outline-none"
+              className="ml-2 px-2 py-1 text-xs rounded-md text-gray-800 bg-gray-200 hover:bg-gray-300 focus:outline-none"
             >
               More
             </button>
