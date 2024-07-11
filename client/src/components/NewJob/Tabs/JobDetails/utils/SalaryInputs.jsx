@@ -7,18 +7,30 @@ const SalaryInputs = ({ displaySalary }) => {
 
   return (
     <>
-      <TextInput id="salaryMin" label="Salary Range (Min)" />
-      <TextInput id="salaryMax" label="Salary Range (Max)" />
-      <SelectInputs
-        id="currency"
-        label="Currency"
-        options={[
-          { value: "USD", label: "USD" },
-          { value: "EUR", label: "EUR" },
-          { value: "GBP", label: "GBP" },
-          { value: "INR", label: "INR" },
-        ]}
-      />
+      <div className="w-full flex gap-5 items-center">
+        <SelectInputs
+          id="paymentFrequency"
+          label="Payment Frequency"
+          options={[
+            { value: "hourly", label: "Hourly" },
+            { value: "monthly", label: "Monthly" },
+            { value: "annually", label: "Annualy" },
+          ]}
+        />
+        <TextInput id="salaryMin" label="Salary Range (Min)" />
+        <span className="text-gray-500 ">to</span>
+        <TextInput id="salaryMax" label="Salary Range (Max)" />
+        <SelectInputs
+          id="currency"
+          label="Currency"
+          options={[
+            { value: "USD", label: "USD" },
+            { value: "EUR", label: "EUR" },
+            { value: "GBP", label: "GBP" },
+            { value: "INR", label: "INR" },
+          ]}
+        />
+      </div>
     </>
   );
 };

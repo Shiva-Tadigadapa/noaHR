@@ -18,17 +18,17 @@ const SkillsInput = () => {
   return (
     <div className="flex flex-col space-y-2">
       <label className="text-sm font-semibold">Skills</label>
-      <div className="flex flex-wrap space-x-2">
+      <div className="flex flex-wrap gap-1.5">
         {skills.map((skill, index) => (
           <div
             key={index}
-            className="flex items-center py-1 px-3 bg-gray-200 rounded-md"
+            className="flex gap-2 items-center py-0.5 px-3 bg-indigo-200 rounded-lg"
           >
-            <span className="mr-2">{skill}</span>
+            <span className="">{skill}</span>
             <button
               type="button"
               onClick={() => handleDeleteSkill(index)}
-              className="text-red-500"
+              className=" text-2xl text-red-600"
             >
               &times;
             </button>
@@ -40,7 +40,7 @@ const SkillsInput = () => {
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
         onKeyDown={handleKeyDown}
-        className="py-2 px-4 border border-gray-300 rounded-md"
+        className="focus:outline-none focus:ring-1 focus:ring-indigo-600 focus:bg-indigo-50 py-2 px-4 border border-gray-300 rounded-md"
         placeholder="Type a skill and press Enter"
       />
     </div>

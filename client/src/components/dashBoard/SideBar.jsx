@@ -18,9 +18,7 @@ import { LuSettings } from "react-icons/lu";
 
 const sidebar = () => {
   const SidebarLinks = "home";
-
   const location = useLocation();
-
   const isPageActive = (pathname) => {
     return location.pathname === pathname;
   };
@@ -29,7 +27,7 @@ const sidebar = () => {
     <div
       className=" bg-gray-100 rounded-3xl sticky top-10 h-[92vh] flex flex-col items-center pb-10 gap-10 border-r border-gray-200"
     >
-      <div className="flex w-[90%]  items-center
+      <div className="flex w-[90%] items-center
        justify-between p-5  border-b-2 border-dashed ">
         <div className="flex items-center gap-2">
           <TbBrandGithubCopilot className="text-4xl p-2 bg-red-400 border border-red-600 rounded-full " />
@@ -73,7 +71,7 @@ const sidebar = () => {
       </div>
       <hr className="w-[80%] p-2" />
 
-      <div className=" bg-black  text-white px-2 py-3     w-48 rounded-2xl text-center">
+      <div className=" bg-black  text-white px-2 py-2 w-[80%] rounded-3xl text-center">
         Profile
       </div>
     </div>

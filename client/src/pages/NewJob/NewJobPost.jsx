@@ -5,10 +5,9 @@ const NewJobPost = () => {
   return (
     <>
       <div className="flex justify-start items-start w-full  ">
-        <div>
+        {/* <div> */}
           <NewJob />
-         
-        </div>
+        {/* </div> */}
       </div>
     </>
   );

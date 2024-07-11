@@ -23,6 +23,15 @@ const App = () => {
   }, [location]);
   return (
     <>
+      <div className="flex items-center justify-center ">
+        <div className="flex items-start justify-center max-w-[1800px] w-full p-5">
+          <Sidebar />
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/newjob" element={<NewJobPost />} />
+          </Routes>
+          <Toaster position='top-right' richColors />
+        </div>
       <div className="flex  justify-center  w-full">
         {show && <Sidebar />}
         {/* <h1 className='text-4xl'>App</h1> */}

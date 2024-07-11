@@ -2,8 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const SidebarLink = ({ href, icon, text, isActive }) => {
-
-  
   const handleClick = () => {
     console.log("clicked")
   };

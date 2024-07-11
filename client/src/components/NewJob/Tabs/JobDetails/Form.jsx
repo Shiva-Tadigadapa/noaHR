@@ -4,13 +4,13 @@ import Inputs from "./utils/Inputs";
 const Form = ({handleTabClick}) => {
   return (
     <>
-      <div className="p-8">
+      <div className="">
         <div>
           <div>
-            <h1 className="text-xl font-semibold py-1">Job Information</h1>
+            <h1 className="text-xl font-semibold pb-6">Job Information</h1>
           </div>
           <div>
-            <p>
+            <p className="text-sm">
               Here enter general information about the job you are posting. This
               information will be displayed on the job listing page. You can
               edit this information later. You can also add more details about
