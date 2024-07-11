@@ -8,6 +8,7 @@ import ApplyForm from "./pages/ApplyForm/ApplyForm";
 import { useLocation } from "react-router-dom";
 import Career from "./pages/Careers/Career";
 import ManageJob from "./pages/MangeJob/ManageJob";
+import EditJob from "./components/Manage/EditJob/EditJob";
 // import Dashboard from './pages/Dashboard/Dashboard';
 
 const App = () => {
@@ -32,6 +33,7 @@ const App = () => {
             <Route path="/" element={<Dashboard />} />
             <Route path="/newjob" element={<NewJobPost />} />
             <Route path="/myjobs/manage/:id" element={<ManageJob />} />
+            <Route path="/myjobs/manage/:id/edit" element={<EditJob />} />
             <Route path="/devatoms/jobs/:jobId/preview" element={<ApplyForm />} />
             <Route path="/devatoms/preview/careers" element={<Career />} />
             <Route path="*" element={<Dashboard />} />

@@ -38,7 +38,7 @@ const Index = () => {
 
   const handleConfetti = () => {
     setShowConfetti(true);
-    setTimeout(() => setShowConfetti(false), 3000); // Duration of confetti animation
+    setTimeout(() => setShowConfetti(false), 3000); 
   };
 
   const renderComponent = () => {
