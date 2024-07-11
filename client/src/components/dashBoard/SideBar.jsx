@@ -45,27 +45,39 @@ const sidebar = () => {
           <ul className="flex flex-col gap-5">
             <SidebarLink />
             <SidebarLink
-              href="projects"
+              href="dashboard"
               icon={IoFolderOpen}
-              text="Projects"
+              text="Home"
               isActive={SidebarLinks === "projects"}
             />
             <SidebarLink
               href="customers"
               icon={MdPeopleAlt}
-              text="Customers"
+              text="Review"
               isActive={SidebarLinks === "customers"}
             />
             <SidebarLink
               href="activities"
               icon={SlGraph}
-              text="Activities"
+              text="Reports"
               isActive={SidebarLinks === "activities"}
             />
             <SidebarLink
-              href="accounts"
+              href="settings"
               icon={FaMoneyBillWave}
-              text="Accounts"
+              text="Settings "
+              isActive={SidebarLinks === "accounts"}
+            />
+            <SidebarLink
+              href="accounts"
+              icon={IoFolderOpen}
+              text="Tests "
+              isActive={SidebarLinks === "accounts"}
+            />
+            <SidebarLink
+              href="accounts"
+              icon={MdPeopleAlt}
+              text="Members"
               isActive={SidebarLinks === "accounts"}
             />
           </ul>
