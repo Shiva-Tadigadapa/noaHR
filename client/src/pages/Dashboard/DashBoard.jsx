@@ -1,7 +1,7 @@
-import React from 'react'
-import SearchHOC from '../../components/dashBoard/SearchHoc'
-import Header from '../../components/dashBoard/Header'
-import JobCard from '../../components/dashBoard/JobCard'
+import React from "react";
+import SearchHOC from "../../components/dashBoard/SearchHoc";
+import Header from "../../components/dashBoard/Header";
+import JobCard from "../../components/dashBoard/JobCard";
 
 const Dashboard = () => {
   return (
@@ -13,14 +13,14 @@ const Dashboard = () => {
             <Header />
           </div>
           <div className=" flex flex-col gap-4">
-            <JobCard name="one"/>
-            <JobCard name="two"/>
-            <JobCard name="three"/>
+            <JobCard name="one" />
+            <JobCard name="two" />
+            <JobCard name="three" />
           </div>
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;
