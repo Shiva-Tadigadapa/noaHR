@@ -9,6 +9,7 @@ import { useLocation } from "react-router-dom";
 import Career from "./pages/Careers/Career";
 import ManageJob from "./pages/MangeJob/ManageJob";
 import EditJob from "./components/Manage/EditJob/EditJob";
+import Settings from "./pages/Settings/Settings";
 // import Dashboard from './pages/Dashboard/Dashboard';
 
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
             <Route path="/myjobs/manage/:id/edit" element={<EditJob />} />
             <Route path="/devatoms/jobs/:jobId/preview" element={<ApplyForm />} />
             <Route path="/devatoms/preview/careers" element={<Career />} />
+            <Route path="/settings" element={<Settings />} />
             <Route path="*" element={<Dashboard />} />
           </Routes>
           <Toaster position="top-right" richColors />
