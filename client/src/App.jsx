@@ -8,6 +8,7 @@ import ApplyForm from "./pages/ApplyForm/ApplyForm";
 import { useLocation } from "react-router-dom";
 import Career from "./pages/Careers/Career";
 import ManageJob from "./pages/MangeJob/ManageJob";
+import { ModalProvider } from "./context/ModalContext";
 // import Dashboard from './pages/Dashboard/Dashboard';
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
   }, [location]);
   return (
     <>
+    <ModalProvider>
       <div className="flex  justify-center  w-full">
         {show && <Sidebar />}
         {/* <h1 className='text-4xl'>App</h1> */}
@@ -30,11 +32,13 @@ const App = () => {
           <Route path="/" element={<Dashboard />} />
           <Route path="/newjob" element={<NewJobPost />} />
           <Route path="/myjobs/manage/:id" element={<ManageJob />} />
+          <Route path="/myjobs/manage/:column/job/:pid" element={<ManageJob   openSideModal={'true'} />} />
           <Route path="/devatoms/jobs/:jobId/preview" element={<ApplyForm />} />
           <Route path="/devatoms/preview/careers" element={<Career />} />
         </Routes>
         <Toaster position="top-right" richColors />
       </div>
+      </ModalProvider>
     </>
   );
 };

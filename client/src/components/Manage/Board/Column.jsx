@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import Card from "./Card";
 import DropIndicator from "./DropIndicator";
 import AddCard from "./AddCard";
+import { Link } from "react-router-dom";
+import { useModal } from "../../../context/ModalContext";
 
 const Column = ({ title, headingColor, cards, column, setCards }) => {
   const [active, setActive] = useState(false);
+  const { isModalOpen, setIsModalOpen } = useModal();
 
   const handleDragStart = (e, card) => {
     e.dataTransfer.setData("cardId", card.id);
@@ -108,7 +111,9 @@ const Column = ({ title, headingColor, cards, column, setCards }) => {
   return (
     <div className="w-56 shrink-0 border-r px-2">
       <div className="mb-3 flex items-center border rounded-md py-2 w-full px-4 justify-between">
-        <h3 className={`font-medium ${headingColor} font-extrabold `}>{title}</h3>
+        <h3 className={`font-medium ${headingColor} font-extrabold `}>
+          {title}
+        </h3>
         <span className="rounded text-sm text-neutral-400">
           {filteredCards.length}
         </span>
@@ -121,9 +126,13 @@ const Column = ({ title, headingColor, cards, column, setCards }) => {
           active ? "bg-neutral-800/50" : "bg-neutral-800/0"
         }`}
       >
-        {filteredCards.map((c) => {
-          return <Card key={c.id} {...c} handleDragStart={handleDragStart} />;
-        })}
+        {filteredCards.map((c) => (
+          <Link to={`/myjobs/manage/${column}/job/${c.id}`} key={c.id}
+            onClick={() => setIsModalOpen(true)}  
+          >
+            <Card key={c.id} {...c} handleDragStart={handleDragStart} />
+          </Link>
+        ))}
         <DropIndicator beforeId={null} column={column} />
         <AddCard column={column} setCards={setCards} />
       </div>

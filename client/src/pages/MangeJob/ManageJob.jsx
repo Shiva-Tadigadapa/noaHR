@@ -1,10 +1,10 @@
 import React from "react";
 import Index from "../../components/Manage/Index";
 
-const ManageJob = () => {
+const ManageJob = ({openSideModal}) => {
   return (
     <div className="w-full">
-      <Index />
+      <Index openSideModal={openSideModal}/>
     </div>
   );
 };

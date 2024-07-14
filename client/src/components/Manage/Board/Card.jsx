@@ -2,8 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import DropIndicator from "./DropIndicator";
 import Avatar from "boring-avatars";
+import { useModal } from "../../../context/ModalContext";
 
 const Card = ({ title, id, column, handleDragStart, organization }) => {
+  const { isModalOpen, setIsModalOpen } = useModal();
   return (
     <>
       <DropIndicator beforeId={id} column={column} />
@@ -14,8 +16,8 @@ const Card = ({ title, id, column, handleDragStart, organization }) => {
         onDragStart={(e) =>
           handleDragStart(e, { title, id, column, organization })
         }
-        className="cursor-grab rounded border border-neutral-700/10 text-black
-         bg-white p-3 active:cursor-grabbing"
+        className={`cursor-grab rounded border border-neutral-700/10 text-black
+          p-3 active:cursor-grabbing  bg-white`}
       >
         <div className="flex gap-2 items-center">
           <Avatar

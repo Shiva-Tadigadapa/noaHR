@@ -1,8 +1,9 @@
 import React from "react";
 import Menu from "./Menu";
 import Kanban from "./Kanban";
-
-const BoardIndex = () => {
+import { useParams } from "react-router-dom";
+const BoardIndex = ({openSideModal}) => {
+  const { id } = useParams();
   return (
     <>
       <div className="w-full h-screen bg-white border rounded flex flex-col">
@@ -11,8 +12,8 @@ const BoardIndex = () => {
           <Menu />
         </div>
         <div className="flex-1 mt-4 overflow-auto">
-          <Kanban />
-        </div>
+          <Kanban openSideModal={openSideModal}  pageId={id}/>
+        </div>        
       </div>
     </>
   );
