@@ -19,7 +19,11 @@ const BoardIndex = () => {
       </div>
       <div className="flex-1 mt-4 overflow-auto">
         <Suspense fallback={<div>Loading...</div>}>
-          {selectedView === "list" ? <LazyListView /> : <LazyKanban />}
+          {selectedView === "list" ? (
+            <LazyListView />
+          ) : (
+            <LazyKanban openSideModal={openSideModal} pageId={id} />
+          )}
         </Suspense>
       </div>
     </div>
