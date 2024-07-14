@@ -3,18 +3,19 @@ import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import update from "immutability-helper";
 import Modal from "./utils/Modal";
-import { FaTrash, FaPen } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 import { RxDragHandleDots2 } from "react-icons/rx";
+import { TbEditCircle } from "react-icons/tb";
 
 const ItemType = "STEP";
 
 const initialSteps = [
-  { id: 1, content: "Initial Screening" },
-  { id: 2, content: "Technical Interview" },
-  { id: 3, content: "HR Interview" },
-  { id: 4, content: "Offer" },
-  { id: 5, content: "Offer" },
-  { id: 6, content: "Offer" },
+  { id: 1, content: "Applied" },
+  { id: 2, content: "Initial Screening" },
+  { id: 3, content: "Online Assessment" },
+  { id: 4, content: "Technical Interview" },
+  { id: 5, content: "HR Interview" },
+  { id: 6, content: "Hired" },
 ];
 
 const DraggableStep = ({
@@ -42,22 +43,22 @@ const DraggableStep = ({
   return (
     <div
       ref={(node) => ref(drop(node))}
-      className="border-b-0 border-gray-500 border first:rounded-t-lg last:rounded-b-lg px-4 py-2 overflow-hidden"
+      className="w-full bg-zinc-500/30 font-semibold border-zinc-600/60 border-2 rounded-lg px-4 py-2 overflow-hidden"
     >
       <div className="flex items-center justify-between gap-14">
-        <div className="flex items-center justify-between gap-3 cursor-grab active:cursor-grabbing">
-          <RxDragHandleDots2 className="text-gray-400" />
+        <div className="flex text-zinc-900 items-center justify-between gap-3 cursor-grab active:cursor-grabbing">
+          <RxDragHandleDots2 className="" />
           <div>{step.content}</div>
         </div>
         <div>
           <button
-            className="text-gray-400 px-2 py-1 rounded"
+            className="text-gray-800 px-2 py-1 rounded"
             onClick={() => handleEditStep(step)}
           >
-            <FaPen />
+            <TbEditCircle />
           </button>
           <button
-            className="text-gray-400 px-2 py-1 rounded"
+            className="text-gray-800 px-2 py-1 rounded"
             onClick={() => handleDeleteStep(step.id)}
           >
             <FaTrash />
@@ -68,7 +69,7 @@ const DraggableStep = ({
   );
 };
 
-const Steps = () => {
+const Steps = ({ handleTabClick }) => {
   const [steps, setSteps] = useState(initialSteps);
   const [editingStep, setEditingStep] = useState(null);
   const [newStepText, setNewStepText] = useState("");
@@ -80,7 +81,7 @@ const Steps = () => {
 
   const closeModal2 = () => {
     setModal2(false);
-    setNewStepText(""); // Clear new step text on modal close
+    setNewStepText("");
   };
 
   const moveStep = (fromIndex, toIndex) => {
@@ -99,18 +100,16 @@ const Steps = () => {
   };
 
   const handleSaveEdit = () => {
-    if (!newStepText.trim()) return; // Prevent saving empty text
+    if (!newStepText.trim()) return;
 
     if (editingStep !== null) {
-      // Editing an existing step
       const updatedSteps = steps.map((step) =>
         step.id === editingStep ? { ...step, content: newStepText } : step
       );
       setSteps(updatedSteps);
     } else {
-      // Adding a new step
       const newStep = {
-        id: steps.length + 1, // Generate a unique ID for the new step
+        id: steps.length + 1,
         content: newStepText,
       };
       setSteps([...steps, newStep]);
@@ -118,7 +117,7 @@ const Steps = () => {
 
     setEditingStep(null);
     setNewStepText("");
-    closeModal2(); // Close the modal after saving
+    closeModal2();
   };
 
   const handleDeleteStep = (stepId) => {
@@ -127,33 +126,33 @@ const Steps = () => {
   };
 
   return (
-    <div className="flex flex-row-reverse">
+    <div className="w-full justify-center flex flex-col">
       <button
-        className="absolute right-8 top-6 border px-3 py-2 rounded-2xl bg-gray-200"
+        className="absolute right-8 hover:bg-black hover:text-white transition-all top-6 border px-3 py-2 rounded-xl bg-zinc-100"
         onClick={openModal2}
       >
-        <h1 className="text-xl">New Job Post</h1>
+        <h1 className="text-lg">New Job Post</h1>
       </button>
       {modal2 && (
         <Modal onClose={closeModal2}>
           <div className="p-4">
-            <h2 className="text-xl mb-4">Add a New Step</h2>
+            <h2 className="text-black text-xl mb-4">Add a New Step</h2>
             <input
               type="text"
               value={newStepText}
               onChange={(e) => setNewStepText(e.target.value)}
-              className="border rounded px-2 py-1 mb-2 text-gray-300   bg-transparent active:outline-none outline-none w-full border-gray-200"
+              className="border rounded-xl px-4 focus:outline-none focus:ring-2 focus:ring-indigo-500 py-2 mb-2 text-gray-800 bg-transparent active:outline-none outline-none w-full focus:border-indigo-400 border-zinc-800"
               placeholder="Enter new step/stage"
             />
-            <div className="flex justify-end">
+            <div className="flex py-4 justify-between">
               <button
-                className="bg-zinc-800 hover:bg-black text-white px-4 py-2 mr-2 rounded"
+                className="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 mr-2 rounded-lg"
                 onClick={handleSaveEdit}
               >
                 Save the Stage
               </button>
               <button
-                className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded"
+                className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg"
                 onClick={closeModal2}
               >
                 Cancel
@@ -164,7 +163,7 @@ const Steps = () => {
       )}
 
       <DndProvider backend={HTML5Backend}>
-        <div className="rounded-lg bg-gray-800 text-white overflow-hidden">
+        <div className="w-[70%] rounded-lg flex flex-col gap-1 text-black overflow-hidden">
           {steps.map((step, index) => (
             <DraggableStep
               key={step.id}
@@ -180,32 +179,39 @@ const Steps = () => {
 
       {editingStep !== null && (
         <Modal onClose={() => setEditingStep(null)}>
-          <div className="p-4">
-            <h2 className="text-xl mb-4">Edit Step</h2>
+          <div className="p-4 gap-1 flex flex-col">
+            <h2 className=" text-black text-2xl mb-4">Edit Step</h2>
             <input
               type="text"
               value={newStepText}
               onChange={(e) => setNewStepText(e.target.value)}
-              className="border rounded px-2 py-1 mb-2 text-gray-300  bg-transparent  active:outline-none outline-none w-full border-gray-400"
+              className="border rounded-xl px-4 focus:outline-none focus:ring-2 focus:ring-indigo-500 py-2 mb-2 text-gray-800 bg-transparent active:outline-none outline-none w-full focus:border-indigo-400 border-zinc-800"
               placeholder="Edit step/stage"
             />
-            <div className="flex justify-end">
+            <div className="flex py-5 justify-between">
               <button
-                className="bg-zinc-800 hover:bg-black text-white px-4 py-2 mr-2 rounded"
-                onClick={handleSaveEdit}
-              >
-                Save the Stage
-              </button>
-              <button
-                className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded"
+                className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg"
                 onClick={() => setEditingStep(null)}
               >
                 Cancel
+              </button>
+              <button
+                className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 mr-2 rounded-lg"
+                onClick={handleSaveEdit}
+              >
+                Save the Stage
               </button>
             </div>
           </div>
         </Modal>
       )}
+      <div className="w-full mt-10">
+        <button
+          onClick={() => handleTabClick("ApplyForm")}
+          className="bg-gray-900/90 px-10 py-2 tracking-wider hover:bg-gray-950 text-white rounded-lg float-right">
+          Next
+        </button>
+      </div>
     </div>
   );
 };

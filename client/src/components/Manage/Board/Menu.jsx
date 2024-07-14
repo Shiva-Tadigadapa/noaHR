@@ -1,44 +1,67 @@
 import React, { useState } from "react";
 import { FaList, FaTh } from "react-icons/fa";
 import { MdCompareArrows, MdAdd } from "react-icons/md";
+import SelectDropdown from "../../../utils/SelectDropdown";
 
-const Menu = () => {
-  const [view, setView] = useState("list"); // State to manage the view
+const Menu = ({ onViewChange }) => {
+  const [type, setType] = useState("allCandidates");
+  const [source, setSource] = useState("allSources");
+  const [view, setView] = useState("list");
+
+  const handleTypeChange = (selectedType) => {
+    setType(selectedType);
+  };
+
+  const handleSourceChange = (selectedSource) => {
+    setSource(selectedSource);
+  };
+
+  const handleViewChange = (selectedView) => {
+    setView(selectedView);
+    onViewChange(selectedView);
+  };
 
   return (
     <div className="flex justify-between items-center p-4 bg-white border-slate-200/80 border-b">
       <div className="flex items-center space-x-4">
         {/* Candidate Stage Filter */}
-        <div className="relative">
-          <select className="p-2 border rounded">
-            <option>All Candidates</option>
-            <option>Rejected</option>
-            <option>Interviewing</option>
-            <option>Hired</option>
-          </select>
-        </div>
+        <SelectDropdown
+          options={[
+            { value: "allCandidates", label: "All Candidates" },
+            { value: "Rejected", label: "Rejected" },
+            { value: "Interviewing", label: "Interviewing" },
+            { value: "Hired", label: "Hired" },
+          ]}
+          label="Type"
+          value={type}
+          onChange={handleTypeChange}
+        />
 
         {/* Source Filter */}
-        <div className="relative">
-          <select className="p-2 border rounded">
-            <option>All Sources</option>
-            <option>LinkedIn</option>
-            <option>Careers</option>
-            <option>Google Jobs</option>
-            <option>Referral</option>
-          </select>
-        </div>
+        <SelectDropdown
+          options={[
+            { value: "allSources", label: "All Sources" },
+            { value: "linkedin", label: "LinkedIn" },
+            { value: "careers", label: "Careers" },
+            { value: "google jobs", label: "Google Jobs" },
+            { value: "referral", label: "Referral" },
+          ]}
+          label="Source"
+          value={source}
+          onChange={handleSourceChange}
+        />
 
-        <button className="p-2 border rounded bg-gray-200/60 hover:bg-gray-300">
-          More Filters
+        <button className="p-2  border rounded bg-gray-200/60 hover:bg-gray-300">
+          MoreFilters
         </button>
       </div>
 
-      <div className="flex items-center gap-5">
+      <div className="flex  gap-3">
+        {/* View Buttons */}
         <div className="flex gap-2">
           <button
-            onClick={() => setView("list")}
-            className={`p-2 rounded ${
+            onClick={() => handleViewChange("list")}
+            className={`px-3 text-xl rounded ${
               view === "list"
                 ? "bg-black/80 text-white"
                 : "bg-gray-200/50 hover:bg-gray-300"
@@ -47,22 +70,23 @@ const Menu = () => {
             <FaList />
           </button>
           <button
-            onClick={() => setView("board")}
-            className={`p-2 rounded ${
+            onClick={() => handleViewChange("board")}
+            className={`px-3 text-xl rounded ${
               view === "board"
-                ? "bg-blue-600 text-white"
+                ? "bg-zinc-900 text-white"
                 : "bg-gray-200 hover:bg-gray-300"
             }`}
           >
             <FaTh />
           </button>
         </div>
-        <button className="p-2 border rounded bg-gray-200/60 hover:bg-gray-300 flex items-center space-x-1">
+
+        {/* Compare and Add Buttons */}
+        <button className="p-2 px-4 border rounded-lg bg-gray-200/60 hover:bg-gray-300 flex items-center space-x-1">
           <MdCompareArrows />
           <span>Compare</span>
         </button>
-
-        <button className="p-2 border rounded bg-black/80 text-white hover:bg-blue-700 flex items-center space-x-1">
+        <button className="p-2 px-6 border rounded-lg bg-black/80 text-white hover:bg-blue-700 flex items-center space-x-1">
           <MdAdd />
           <span>Add</span>
         </button>
