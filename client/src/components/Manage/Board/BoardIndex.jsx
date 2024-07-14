@@ -4,7 +4,7 @@ const LazyKanban = React.lazy(() => import("./Kanban"));
 const LazyListView = React.lazy(() => import("./ListView"));
 import Menu from "./Menu";
 
-const BoardIndex = () => {
+const BoardIndex = ({openSideModal , id}) => {
   const [selectedView, setSelectedView] = useState("list");
 
   const handleViewChange = (view) => {
