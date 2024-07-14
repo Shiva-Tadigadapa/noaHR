@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Avatar from "boring-avatars";
-import { FiEye } from "react-icons/fi"; // Importing Eye icon from React Icons
+import { FiEye } from "react-icons/fi"; 
+import { Link } from "react-router-dom";
 
 const JobCard = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +11,9 @@ const JobCard = () => {
   };
 
   return (
-    <div className="rounded-lg overflow-hidden cursor-pointer hover:bg-gray-50/10 transition-all delay-75 duration-300 bg-white border border-gray-200">
+    <Link 
+    to="/myjobs/manage/1"
+    className="rounded-lg overflow-hidden cursor-pointer hover:bg-gray-50/10 transition-all delay-75 duration-300 bg-white border border-gray-200">
       <div className="p-4">
         <div className="flex items-center mb-3">
           <Avatar
@@ -67,7 +70,7 @@ const JobCard = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
